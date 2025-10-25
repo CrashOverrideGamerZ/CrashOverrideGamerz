@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameLicense Pro - Sistema de Licencias</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Partículas de fondo -->
+        <div id="particles-js"></div>
+        
+        <!-- Logo y Título -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GAMELICENSE PRO</span>
+            </div>
+            <h1 class="title">SISTEMA DE LICENCIAS</h1>
+            <p class="subtitle">Activa tu licencia • Descarga la app • Juega sin límites</p>
+        </div>
+
+        <!-- Contenedor Principal -->
+        <div class="main-container">
+            <!-- Formulario de Login -->
+            <div class="form-container active" id="login-container">
+                <div class="form-header">
+                    <h2><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</h2>
+                    <p>Accede a tu cuenta existente</p>
+                </div>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Tu email gamer" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Contraseña secreta" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('login-password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        ACCEDER AL SISTEMA
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>¿Nuevo en el equipo? <a href="#" onclick="showRegister()">Regístrate aquí</a></p>
+                </div>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <div class="form-container" id="register-container">
+                <div class="form-header">
+                    <h2><i class="fas fa-user-plus"></i> UNIRSE AL EQUIPO</h2>
+                    <p>Crea tu cuenta para comenzar</p>
+                </div>
+                
+                <form id="register-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-name" placeholder="Nombre completo" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="register-email" placeholder="Email gamer" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-building"></i>
+                        <input type="text" id="register-company" placeholder="Equipo/Clan" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" placeholder="Contraseña épica" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('register-password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-confirm-password" placeholder="Confirmar contraseña" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-shield-alt"></i>
+                        ACTIVAR LICENCIA
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>¿Ya tienes cuenta? <a href="#" onclick="showLogin()">Inicia sesión</a></p>
+                </div>
+            </div>
+
+            <!-- Panel de Éxito -->
+            <div class="success-container" id="success-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>¡LICENCIA ACTIVADA!</h2>
+                <p>Tu cuenta ha sido configurada exitosamente</p>
+                <div class="user-info">
+                    <div class="info-item">
+                        <i class="fas fa-id-card"></i>
+                        <span id="user-name">Usuario</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span id="user-pc">PC Gamer Lista</span>
+                    </div>
+                </div>
+                <button class="btn btn-download" onclick="downloadApp()">
+                    <i class="fas fa-download"></i>
+                    DESCARGAR APP WPF
+                </button>
+                <div class="license-info">
+                    <i class="fas fa-info-circle"></i>
+                    Tu licencia está vinculada a tu hardware
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Footer -->
+        <div class="footer-stats">
+            <div class="stat">
+                <span class="stat-number" id="users-count">0</span>
+                <span class="stat-label">JUGADORES ACTIVOS</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="licenses-count">0</span>
+                <span class="stat-label">LICENCIAS OTORGADAS</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="downloads-count">0</span>
+                <span class="stat-label">DESCARGAS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
