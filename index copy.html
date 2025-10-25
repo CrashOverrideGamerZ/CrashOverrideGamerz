@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Gamer Zone - Tienda Oficial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-crosshairs"></i>
+                <span>CRASHOVERRIDE GAMERZ</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    INICIO
+                </a>
+                <a href="#store" class="nav-link" data-section="store">
+                    <i class="fas fa-store"></i>
+                    TIENDA
+                </a>
+                <a href="#licenses" class="nav-link" data-section="licenses">
+                    <i class="fas fa-key"></i>
+                    LICENCIAS
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-headset"></i>
+                    SOPORTE
+                </a>
+            </div>
+
+            <div class="nav-user" id="nav-user">
+                <!-- Mostrar cuando el usuario NO está logueado -->
+                <div class="auth-buttons" id="auth-buttons">
+                    <button class="btn-login" onclick="showLoginModal()">
+                        <i class="fas fa-sign-in-alt"></i>
+                        LOGIN
+                    </button>
+                    <button class="btn-register" onclick="showRegisterModal()">
+                        <i class="fas fa-user-plus"></i>
+                        REGISTRO
+                    </button>
+                </div>
+
+                <!-- Mostrar cuando el usuario SÍ está logueado -->
+                <div class="user-menu" id="user-menu" style="display: none;">
+                    <div class="user-info">
+                        <img src="https://via.placeholder.com/40" alt="Avatar" class="user-avatar">
+                        <span class="user-name" id="user-display-name">Usuario</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="#profile" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            Editar Perfil
+                        </a>
+                        <a href="#licenses" class="dropdown-item">
+                            <i class="fas fa-key"></i>
+                            Mis Licencias
+                        </a>
+                        <a href="#orders" class="dropdown-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            Mis Pedidos
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item logout" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="hero-subtitle">BIENVENIDO A</span>
+                        CRASHOVERRIDE GAMERZ
+                    </h1>
+                    <p class="hero-description">
+                        La tienda oficial de merchandising y licencias para jugadores profesionales. 
+                        Equípate como un verdadero soldado del gaming.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-hero primary" onclick="showSection('store')">
+                            <i class="fas fa-shopping-cart"></i>
+                            VER TIENDA
+                        </button>
+                        <button class="btn-hero secondary" onclick="showRegisterModal()">
+                            <i class="fas fa-rocket"></i>
+                            UNIRSE AL EQUIPO
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>LICENCIAS ACTIVAS</h3>
+                        <span class="count">1,247</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-users"></i>
+                        <h3>JUGADORES REGISTRADOS</h3>
+                        <span class="count">5,892</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-store"></i> TIENDA GAMER</h2>
+                <p>Equipamiento profesional para jugadores élite</p>
+            </div>
+
+            <div class="store-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="clothing">Ropa</button>
+                <button class="filter-btn" data-filter="accessories">Accesorios</button>
+                <button class="filter-btn" data-filter="equipment">Equipo</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/1a1a2e/00ff88?text=Polo+COD" alt="Polo COD">
+                        <div class="product-badge">NUEVO</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Polo Táctico COD</h3>
+                        <p class="product-description">Polo de alto rendimiento con tecnología dry-fit</p>
+                        <div class="product-price">$34.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/16213e/00ccff?text=Hoodie+Gamer" alt="Hoodie Gamer">
+                        <div class="product-badge">POPULAR</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hoodie Élite</h3>
+                        <p class="product-description">Hoodie premium con capucha ajustable</p>
+                        <div class="product-price">$59.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/0f3460/ff00ff?text=Gorra+Táctica" alt="Gorra COD">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Gorra Táctica</h3>
+                        <p class="product-description">Gorra ajustable con logo COD bordado</p>
+                        <div class="product-price">$24.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card" data-category="equipment">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/1a1a2e/00ff88?text=Mouse+Pad+XL" alt="Mouse Pad">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mouse Pad XL Pro</h3>
+                        <p class="product-description">Superficie de gaming 900x400mm</p>
+                        <div class="product-price">$29.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/16213e/00ccff?text=Llavero+Láser" alt="Llavero">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Llavero Táctico</h3>
+                        <p class="product-description">Llavero metálico con diseño militar</p>
+                        <div class="product-price">$14.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/0f3460/ff00ff?text=Camiseta+Limited" alt="Camiseta">
+                        <div class="product-badge">LIMITADO</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta Edición Especial</h3>
+                        <p class="product-description">Diseño exclusivo temporada 2024</p>
+                        <div class="product-price">$39.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Licenses Section -->
+        <section id="licenses" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-key"></i> GESTIÓN DE LICENCIAS</h2>
+                <p>Administra tus licencias y activaciones</p>
+            </div>
+            <div class="license-container">
+                <div class="license-card">
+                    <div class="license-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>LICENCIA ACTIVA</h3>
+                    </div>
+                    <div class="license-info">
+                        <div class="info-row">
+                            <span>Usuario:</span>
+                            <strong id="license-user">-</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>PC Asociada:</span>
+                            <strong id="license-pc">-</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>Estado:</span>
+                            <span class="status-active">ACTIVA</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Activación:</span>
+                            <span id="license-date">-</span>
+                        </div>
+                    </div>
+                    <button class="btn-transfer" onclick="showTransferModal()">
+                        <i class="fas fa-sync-alt"></i>
+                        TRANSFERIR LICENCIA
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-headset"></i> SOPORTE TÉCNICO</h2>
+                <p>Estamos aquí para ayudarte</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>soporte@codgamerzone.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horario</h3>
+                            <p>24/7 - Soporte Premium</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-discord"></i>
+                        <div>
+                            <h3>Discord</h3>
+                            <p>@codgamerzone</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Tu nombre" required>
+                    <input type="email" placeholder="Tu email" required>
+                    <select required>
+                        <option value="">Tipo de consulta</option>
+                        <option value="technical">Soporte Técnico</option>
+                        <option value="license">Problemas con Licencia</option>
+                        <option value="store">Consulta de Tienda</option>
+                        <option value="other">Otro</option>
+                    </select>
+                    <textarea placeholder="Describe tu problema..." rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        ENVIAR MENSAJE
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modales -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            <h2><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" id="login-email" required>
+                <input type="password" placeholder="Contraseña" id="login-password" required>
+                <button type="submit" class="btn-modal">
+                    <i class="fas fa-rocket"></i>
+                    ACCEDER
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('register-modal')">&times;</span>
+            <h2><i class="fas fa-user-plus"></i> REGISTRARSE</h2>
+            <form id="register-form">
+                <input type="text" placeholder="Nombre completo" id="register-name" required>
+                <input type="email" placeholder="Email" id="register-email" required>
+                <input type="text" placeholder="Clan/Equipo" id="register-clan" required>
+                <input type="password" placeholder="Contraseña" id="register-password" required>
+                <input type="password" placeholder="Confirmar contraseña" id="register-confirm" required>
+                <button type="submit" class="btn-modal">
+                    <i class="fas fa-shield-alt"></i>
+                    CREAR CUENTA
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - CRASHOVERRIDE GAMERZ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar (igual que index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-crosshairs"></i>
+                <span>CRASHOVERRIDE GAMERZ</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    INICIO
+                </a>
+                <a href="tienda.html" class="nav-link active">
+                    <i class="fas fa-store"></i>
+                    TIENDA
+                </a>
+                <a href="licencias.html" class="nav-link">
+                    <i class="fas fa-key"></i>
+                    LICENCIAS
+                </a>
+                <a href="soporte.html" class="nav-link">
+                    <i class="fas fa-headset"></i>
+                    SOPORTE
+                </a>
+            </div>
+
+            <!-- Mismo código de usuario que index.html -->
+            <div class="nav-user" id="nav-user">
+                <div class="auth-buttons" id="auth-buttons">
+                    <button class="btn-login" onclick="showLoginModal()">
+                        <i class="fas fa-sign-in-alt"></i>
+                        LOGIN
+                    </button>
+                    <button class="btn-register" onclick="showRegisterModal()">
+                        <i class="fas fa-user-plus"></i>
+                        REGISTRO
+                    </button>
+                </div>
+                <div class="user-menu" id="user-menu" style="display: none;">
+                    <!-- ... mismo código ... -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content - Tienda -->
+    <main class="main-content">
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-store"></i> TIENDA GAMER</h2>
+                <p>Equipamiento profesional para jugadores élite</p>
+            </div>
+
+            <div class="store-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="clothing">Ropa</button>
+                <button class="filter-btn" data-filter="accessories">Accesorios</button>
+                <button class="filter-btn" data-filter="equipment">Equipo</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Mismos productos que antes -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/1a1a2e/00ff88?text=Polo+COD" alt="Polo COD">
+                        <div class="product-badge">NUEVO</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Polo Táctico COD</h3>
+                        <p class="product-description">Polo de alto rendimiento con tecnología dry-fit</p>
+                        <div class="product-price">$34.99</div>
+                        <button class="btn-buy">
+                            <i class="fas fa-shopping-cart"></i>
+                            AGREGAR
+                        </button>
+                    </div>
+                </div>
+                <!-- ... más productos ... -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Mismos modales y scripts -->
+    <div id="login-modal" class="modal">...</div>
+    <div id="register-modal" class="modal">...</div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

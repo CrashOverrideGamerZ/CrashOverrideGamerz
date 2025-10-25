@@ -1,4 +1,4 @@
-// Configuración de partículas (se mantiene igual)
+// Configuración de partículas
 particlesJS('particles-js', {
     particles: {
         number: { value: 100, density: { enable: true, value_area: 800 } },
@@ -33,43 +33,49 @@ particlesJS('particles-js', {
     }
 });
 
-// 🚨 ELIMINAR ESTA FUNCIÓN - Ya no se necesita navegación interna
-/*
+// Navegación entre secciones
 function showSection(sectionId) {
-    // Esto se elimina porque ahora cada página es independiente
+    // Ocultar todas las secciones
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Mostrar la sección seleccionada
+    document.getElementById(sectionId).classList.add('active');
+    
+    // Actualizar navegación activa
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
 }
-*/
 
-// Filtros de tienda - SOLO si estamos en la página de tienda
+// Filtros de tienda
 document.addEventListener('DOMContentLoaded', function() {
-    // ✅ Filtros de productos (solo en tienda.html)
+    // Filtros de productos
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
     
-    // Solo ejecutar si existen estos elementos (estamos en tienda.html)
-    if (filterBtns.length > 0 && productCards.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Actualizar botón activo
-                filterBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filtrar productos
-                productCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Actualizar botón activo
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filtrar productos
+            productCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
-    }
+    });
     
-    // 🚨 ELIMINAR ESTO - Ya no necesitamos navegación por data-section
-    /*
+    // Navegación por links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -77,10 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
             showSection(section);
         });
     });
-    */
 });
 
-// ✅ Funciones de modales (se mantienen igual)
+// Funciones de modales
 function showLoginModal() {
     document.getElementById('login-modal').style.display = 'block';
 }
@@ -93,37 +98,35 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// ✅ Cerrar modal al hacer clic fuera (se mantiene igual)
+// Cerrar modal al hacer clic fuera
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
     }
 }
 
-// ✅ Simular usuario logueado (se mantiene igual)
+// Simular usuario logueado (esto se conectará con Firebase)
 function simulateLogin(userData) {
     document.getElementById('auth-buttons').style.display = 'none';
     document.getElementById('user-menu').style.display = 'block';
     document.getElementById('user-display-name').textContent = userData.name;
     
-    // Actualizar información de licencia (si existe en la página)
-    const licenseUser = document.getElementById('license-user');
-    const licensePc = document.getElementById('license-pc');
-    const licenseDate = document.getElementById('license-date');
+    // Actualizar información de licencia
+    document.getElementById('license-user').textContent = userData.name;
+    document.getElementById('license-pc').textContent = userData.pcName;
+    document.getElementById('license-date').textContent = new Date().toLocaleDateString();
     
-    if (licenseUser) licenseUser.textContent = userData.name;
-    if (licensePc) licensePc.textContent = userData.pcName;
-    if (licenseDate) licenseDate.textContent = new Date().toLocaleDateString();
+    // Mostrar sección de inicio
+    showSection('home');
 }
 
 function logout() {
     document.getElementById('auth-buttons').style.display = 'flex';
     document.getElementById('user-menu').style.display = 'none';
-    // Redirigir a inicio después de logout
-    window.location.href = 'index.html';
+    showSection('home');
 }
 
-// ✅ Datos de ejemplo (se mantiene igual)
+// Datos de ejemplo para demostración
 const demoUser = {
     name: "CrashOverride",
     pcName: "GAMER-PRO-2024"

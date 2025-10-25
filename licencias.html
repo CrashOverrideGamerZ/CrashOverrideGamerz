@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - CRASHOVERRIDE GAMERZ</title>
+    <title>Licencias - CRASHOVERRIDE GAMERZ</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +18,7 @@
             </div>
             
             <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link active">
+                <a href="index.html" class="nav-link">
                     <i class="fas fa-home"></i>
                     INICIO
                 </a>
@@ -26,7 +26,7 @@
                     <i class="fas fa-store"></i>
                     TIENDA
                 </a>
-                <a href="licencias.html" class="nav-link">
+                <a href="licencias.html" class="nav-link active">
                     <i class="fas fa-key"></i>
                     LICENCIAS
                 </a>
@@ -80,81 +80,46 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content - Licencias -->
     <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-subtitle">BIENVENIDO A</span>
-                    CRASHOVERRIDE GAMERZ
-                </h1>
-                <p class="hero-description">
-                    La tienda oficial de merchandising y licencias para jugadores profesionales. 
-                    Equípate como un verdadero soldado del gaming.
-                </p>
-                <div class="hero-buttons">
-                    <a href="tienda.html" class="btn-hero primary">
-                        <i class="fas fa-shopping-cart"></i>
-                        VER TIENDA
-                    </a>
-                    <button class="btn-hero secondary" onclick="showRegisterModal()">
-                        <i class="fas fa-rocket"></i>
-                        UNIRSE AL EQUIPO
-                    </button>
-                </div>
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-key"></i> GESTIÓN DE LICENCIAS</h2>
+                <p>Administra tus licencias y activaciones</p>
             </div>
-            <div class="hero-image">
-                <div class="floating-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>LICENCIAS ACTIVAS</h3>
-                    <span class="count">1,247</span>
-                </div>
-                <div class="floating-card">
-                    <i class="fas fa-users"></i>
-                    <h3>JUGADORES REGISTRADOS</h3>
-                    <span class="count">5,892</span>
+            <div class="license-container">
+                <div class="license-card">
+                    <div class="license-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>LICENCIA ACTIVA</h3>
+                    </div>
+                    <div class="license-info">
+                        <div class="info-row">
+                            <span>Usuario:</span>
+                            <strong id="license-user">-</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>PC Asociada:</span>
+                            <strong id="license-pc">-</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>Estado:</span>
+                            <span class="status-active">ACTIVA</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Activación:</span>
+                            <span id="license-date">-</span>
+                        </div>
+                    </div>
+                    <button class="btn-transfer" onclick="showTransferModal()">
+                        <i class="fas fa-sync-alt"></i>
+                        TRANSFERIR LICENCIA
+                    </button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modales -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('login-modal')">&times;</span>
-            <h2><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</h2>
-            <form id="login-form">
-                <input type="email" placeholder="Email" id="login-email" required>
-                <input type="password" placeholder="Contraseña" id="login-password" required>
-                <button type="submit" class="btn-modal">
-                    <i class="fas fa-rocket"></i>
-                    ACCEDER
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <div id="register-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('register-modal')">&times;</span>
-            <h2><i class="fas fa-user-plus"></i> REGISTRARSE</h2>
-            <form id="register-form">
-                <input type="text" placeholder="Nombre completo" id="register-name" required>
-                <input type="email" placeholder="Email" id="register-email" required>
-                <input type="text" placeholder="Clan/Equipo" id="register-clan" required>
-                <input type="password" placeholder="Contraseña" id="register-password" required>
-                <input type="password" placeholder="Confirmar contraseña" id="register-confirm" required>
-                <button type="submit" class="btn-modal">
-                    <i class="fas fa-shield-alt"></i>
-                    CREAR CUENTA
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="module" src="firebase-config.js"></script>
-    <script src="script.js"></script>
+    <!-- Mismos modales y scripts -->
 </body>
 </html>
